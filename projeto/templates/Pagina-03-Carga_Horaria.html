@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    {% if user.is_authenticated %}
+    
     <nav>
         <div class="navbar">
             
@@ -32,79 +32,86 @@
             </div>
 
             <ul class="links">
+
+                {% if user.is_authenticated %}
                 
-                <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
-                <li><a href="{% url 'pagina4' %}">Demandas</a></li>
-                <li><a href="{% url 'pagina5' %}">Observações</a></li>
+                    <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
+                    <li><a href="{% url 'pagina4' %}">Demandas</a></li>
+                    <li><a href="{% url 'pagina5' %}">Observações</a></li>
+                    <li><a href="{% url 'pagina05' %}">Cadastros</a></li>
 
-                <li>
-                    <a href="#">Turmas e Cursos</a>
+                    <li>
+                        <a href="#">Turmas e Cursos</a>
 
-                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
 
-                    <ul class="htmlCss-sub-menu sub-menu">
+                        <ul class="htmlCss-sub-menu sub-menu">
 
-                        <li class="more">
+                            <li class="more">
 
-                            <span class="turmas"><a href="#">Superior</a>
-                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-                            </span>
+                                <span class="turmas"><a href="#">Superior</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
 
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="{% url 'pagina6' %}">TADS</a></li>
-                                <li><a href="#">Matemática</a></li>
-                                <li><a href="#">Biologia</a></li>
-                            </ul>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="{% url 'pagina6' %}">TADS</a></li>
+                                    <li><a href="#">Matemática</a></li>
+                                    <li><a href="#">Biologia</a></li>
+                                </ul>
 
-                        </li>
-                        
-
-                        <li class="more">
-
-                            <span class="turmas"><a href="#">Integrado</a>
-                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-                            </span>
+                            </li>
                             
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="#">Edificações</a></li>
-                                <li><a href="#">Eletromecânica</a></li>
-                                <li><a href="#">Informática</a></li>
-                                <li><a href="#">Meio Ambiente</a></li>
-                            </ul>
 
-                        </li>
+                            <li class="more">
 
-                        <li class="more">
+                                <span class="turmas"><a href="#">Integrado</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="#">Edificações</a></li>
+                                    <li><a href="#">Eletromecânica</a></li>
+                                    <li><a href="#">Informática</a></li>
+                                    <li><a href="#">Meio Ambiente</a></li>
+                                </ul>
 
-                            <span class="turmas"><a href="#">Concomitantes</a>
-                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-                            </span>
+                            </li>
+
+                            <li class="more">
+
+                                <span class="turmas"><a href="#">Concomitantes</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="#">Edificações</a></li>
+                                    <li><a href="#">Eletromecânica</a></li>
+                                    <li><a href="#">Informática</a></li>
+                                </ul>
+
+                            </li>
+
+                            <li class="more">
+
+                                <span class="turmas"><a href="#">Subsequentes</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="#">Edificações</a></li>
+                                    <li><a href="#">Eletromecânica</a></li>
+                                    <li><a href="#">Informática</a></li>
+                                </ul>
+
+                            </li>
                             
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="#">Edificações</a></li>
-                                <li><a href="#">Eletromecânica</a></li>
-                                <li><a href="#">Informática</a></li>
-                            </ul>
-
-                        </li>
-
-                        <li class="more">
-
-                            <span class="turmas"><a href="#">Subsequentes</a>
-                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-                            </span>
-                            
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="#">Edificações</a></li>
-                                <li><a href="#">Eletromecânica</a></li>
-                                <li><a href="#">Informática</a></li>
-                            </ul>
-
-                        </li>
-                        
-                    </ul>
-                </li>   
-                <li><a href="{% url 'pagina1' %}"> {{ nome_usuario }} Sair</a></li>
+                        </ul>
+                    </li>   
+                    <li><a href="{% url 'pagina1' %}"> {{ nome_usuario }} Sair</a></li>
+                {% else %}
+                    <p>Por favor, faça o login para acessar esta página.</p>
+                    <a href="{% url 'pagina2' %}">Login</a>
+                {% endif %}
                 
             </ul>
         </div>
@@ -236,8 +243,10 @@
             <div class = "addr-book-content">
 
                 <div class = "addr-book-head">
+
                     <i class = "fa-solid fa-address-book fa-2x"></i>
                     <h2>Carga<span> Horária dos Professores</span></h2>
+
                 </div>
 
                 <div class = "addr-book-list" id = "addr-book-list">
@@ -376,9 +385,5 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'js/Pagina-03.js' %}"></script>
 
-    {% else %}
-        <p>Por favor, faça o login para acessar esta página.</p>
-        <a href="{% url 'pagina2' %}">Login</a>
-    {% endif %}
 </body>
 </html>

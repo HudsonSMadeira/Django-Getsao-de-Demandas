@@ -36,6 +36,7 @@
                 <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
                 <li><a href="{% url 'pagina4' %}">Demandas</a></li>
                 <li><a href="{% url 'pagina5' %}">Observações</a></li>
+                <li><a href="{% url 'pagina05' %}">Cadastros</a></li>
 
                 <li>
                     <a href="#">Turmas e Cursos</a>
@@ -142,11 +143,17 @@
                     <div class = "modal-row">
                         <div class = "modal-col">
                             <label for="">Professor</label>
-                            <input type = "text"  class = "form-control" name = "addr_ing_name">
+                            <input type = "text"  class = "form-control" list="professores" name = "addr_ing_name">
+                            <datalist id="professores">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </datalist>
                         </div>
                         <div class = "modal-col">
                             <label for="">Diciplinas</label>
-                            <input type = "text"  class = "form-control" name = "diciplinas_D">
+                            <input type = "text"  class = "form-control" list="" name = "diciplinas_D">
                         </div>
                     </div>
 
@@ -193,8 +200,7 @@
                 <div class = "addr-book-head">
 
                     <i class = "fa-solid fa-address-book fa-2x"></i>
-                    <h2>Demandas<span>  de Diciplinas do
-                        Período Letivo 2023.2</span>
+                    <h2>Demandas<span>  de Diciplinas</span>
                     </h2>
 
                 </div>

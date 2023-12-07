@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
-
 def pagina1(request):
-    return render(request, 'Pagina-01.html')
+    return render(request,'Pagina-01.html')
 
 def pagina2(request):
     if request.method == 'GET':
@@ -14,9 +13,10 @@ def pagina2(request):
             'form': AuthenticationForm()
         })
     else:
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        username = request.POST.get('username1')
+        password = request.POST.get('password1')
+
+        user = authenticate(request, username1=username, password1=password)
 
         if user is not None:
             login(request, user)
@@ -50,6 +50,15 @@ def pagina5(request):
     if request.user.is_authenticated:
         nome_usuario = request.user.username
         return render(request, 'Pagina-05-Observações.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
+    
+@login_required 
+def pagina05(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-005-Cadastro.html', {'nome_usuario': nome_usuario})
     else:
         # caso o usuário não esteja autenticado
         return redirect('Pagina-02-Login.html')
