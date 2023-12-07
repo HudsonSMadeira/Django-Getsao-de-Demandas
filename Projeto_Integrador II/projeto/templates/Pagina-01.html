@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Pagina-01.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    
+    <header>
+        
+        <h2 class="logo"><span>Gestão</span> de Demandas</h2>
+        <a href="{% url 'pagina2' %}" class="btn-talk">Acessar</a>
+
+    </header>
+
+    <section class="home">
+
+        <div class="content">
+
+            <h2>IFPI <span>Campus Floriano</span></h2>
+
+            <h4>Web Site idealizado para realizar a distribuição das disciplinas ofertadas a cada semestre entre seus
+                docentes.
+            </h4>
+
+            <p></p>
+
+            <div class="btn-group">
+                <a href="#">Saiba Mais</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+
+            <div class="top">
+
+                <div class="brand">
+
+                    <a href="#" class="logo">Gestão de Demandas</a>
+
+                    <p>
+                        Sistema Online de Gestão de Demandas de Disciplinas do Instituto Federal do Piaui
+                        Campus Floriano.
+                    </p>
+
+                    <ul class="social-media">
+
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>  
+
+                </div>
+
+                <div class="links">
+
+                    <h4>Links</h4>
+
+                    <ul class="link-list">
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#">Serviços</a>
+                        </li>
+                        <li>
+                            <a href="#">Características</a>
+                        </li>
+                        <li>
+                            <a href="#">Site</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="contact">
+
+                    <h4>Localização</h4>
+
+                    <ul class="contact-list">
+                        <li>Cidade: Floriano PI</li>
+                        <li>Rua: Francisco Urquiza Machado, 462</li>
+                        <li>Email: tec.log@gmail.com</li>
+                        <li>Phone: +5589 9 9497-0001</li>
+                    </ul>
+
+                </div>
+
+                <div class="newsletter">
+
+                    <h4>Entre em contato</h4>
+
+                    <form action="">
+                        <div class="form">
+                            <input type="email" placeholder="Email">
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+
+                </div>
+                
+            </div>
+
+            <div class='django-img'>
+                <img src="{% static 'imagens/.png' %}" alt="">
+            </div>
+
+            <hr>
+
+            <div class="bottom"> 
+                <p><a href="#">Termos</a> | <a href="#">Politica de privacidade</a></p> 
+                <p>Gestão de Demandas - IFPI Campus Floriano &copy; 2023</p>  
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

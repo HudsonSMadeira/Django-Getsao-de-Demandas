@@ -1,0 +1,351 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="pt-BR" dir="ltr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Pagina Inicial </title>
+  <link rel="stylesheet" href="{% static 'css/Pagina-06.css' %}">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar">
+            
+        <i class='bx bx-menu'></i>
+
+        <div class="logo"><a href="#"><span>Gestão</span> de Demandas</a></div>
+
+        <div class="nav-links">
+
+            <div class="sidebar-logo">
+                <span class="logo-name"></span>
+                <i class='bx bx-x' ></i>
+            </div>
+
+            <ul class="links">
+                
+                <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
+                <li><a href="{% url 'pagina4' %}">Demandas</a></li>
+                <li><a href="{% url 'pagina5' %}">Observações</a></li>
+
+                <li>
+
+                    <a href="#">Turmas e Cursos</a>
+
+                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+
+                    <ul class="htmlCss-sub-menu sub-menu">
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Superior</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="{% url 'pagina6' %}">TADS</a></li>
+                                <li><a href="#">Matemática</a></li>
+                                <li><a href="#">Biologia</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Integrado</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                                <li><a href="#">Meio Ambiente</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Concomitantes</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Subsequentes</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                            </ul>
+
+                        </li>
+                        
+                    </ul>
+                </li>   
+                <li><a href="{% url 'pagina1' %}"> {{ nome_usuario }} Sair</a></li>
+            </ul>
+        </div>
+
+        <div class="search-box">
+            <i class='bx bx-search'></i>
+            <div class="input-box">
+            <input type="text" placeholder="Pesquisar...">
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-------------- Lista de Diciplia ------------>
+
+    <div id = "fullscreen-div"></div>
+
+        <form class = "modal" id = "modal" metod='POST'>
+
+            {% csrf_token %}
+
+            <div class = "modal-content">
+
+                <div class = "modal-head">
+
+                    <h3 id = "modal-title">Adicionar Diciplinas</h3>
+                    <button type="button" id = "close-btn">
+                        <i class = "fas fa-times"></i>
+                    </button>
+
+                </div>
+
+                <div class = "modal-main">
+
+                    <div class = "modal-row">
+
+                        <div class = "modal-col">
+                            <label for="">Diciplinas</label>
+                            <input type = "text"  class = "form-control" name = "diciplina_a">
+                        </div>
+
+                        <div class = "modal-col">
+                            <label for="">Professores</label>
+                            <input type = "text"  class = "form-control" name = "professores_s">
+                        </div>
+
+                    </div>
+
+                    <div class = "modal-row grid-row">
+
+                        <div class = "modal-col">
+                            <label for="">Semestre</label>
+                            <input type = "text"  class = "form-control" name = "semestre_e">
+                        </div>
+
+                        <div class = "modal-col">
+                            <label for="">Horas</label>
+                            <input type = "text"  class = "form-control" name = "horas_s">
+                        </div>
+
+                    </div>
+
+                    <div class = "modal-row" id = "modal-btns">
+                        <button type = "submit" id = "save-btn">Salvar</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <div class = "addr-book-list" id = "addr-book-list">
+
+            <div class="titulo-curso">
+                <h1>Tecnologia em Análise e Desenvolvimento de Sistemas</h1>
+            </div>
+
+            <section class="table__header">
+                
+                <h1>Disciplinas</h1>
+    
+                <button type="button" class="btn" id="add-btn">
+                    <span><i class="fas fa-plus"></i> Adicionar</span>
+                </button>
+
+            </section>
+            
+            <table class = "addr-table">
+
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> Disciplinas </span></th>
+                        <th> Professores </th>
+                        <th> Semestre </th>
+                        <th> </th>
+                        <th> Horas </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Analise e Projeto de Sistemas</td>
+                        <td>Vanessa Veloso Aragao</td>
+                        <td>2023.2</td>
+                        <td> <strong>72</strong> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Introdução a Administração</td>
+                        <td>Magno Weverson da Silva Bezerra</td>
+                        <td>2023.2</td>
+                        <td> <strong>36</strong> </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Egenharia de Software III</td>
+                        <td>Francisco Eduardo Pires de Morais</td>
+                        <td>2023.2</td>
+                        <td> <strong>36</strong> </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Analise e Projeto de Sistemas</td>
+                        <td>Vanessa Aragão veloso</td>
+                        <td>2023.2</td>
+                        <td> <strong>72</strong> </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Redes de Computadores</td>
+                        <td>Marcony Santana Maximo</td>
+                        <td>2023.2</td>
+                        <td> <strong>72</strong> </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Projeto Integrador II</td>
+                        <td>Willamys Rangel Nunes de Sousa</td>
+                        <td>2023.2</td>
+                        <td> <strong>72</strong> </td>
+                    </tr>
+        
+                    <tr>
+                        <td>Programação para Intenrt II</td>
+                        <td>Robson Almeida Borges de Freitas</td>
+                        <td>2023.2</td>
+                        <td> <strong>72</strong> </td>
+                    </tr>
+        
+                    <!--
+                    <tr>
+                        <td>Diciplinas</td>
+                        <td>Professores</td>
+                        <td> Semestre </td>
+                        <td> </td>
+                        <td> <strong> Horas </strong> </td>
+                    </tr>
+                    -->
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-inferior">
+            <div class="top">
+                    <div class="brand">
+                        <a href="#" class="logo">Gestão de Demandas</a>
+                        <p>
+                            Sistema Online de Gestão de Demandas de Disciplinas do Instituto Federal do Piaui
+                            Campus Floriano.
+                        </p>
+                        <ul class="social-media">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>  
+                    </div>
+                <div class="links">
+                    <h4>Links</h4>
+                    <ul class="link-list">
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#">Serviços</a>
+                        </li>
+                        <li>
+                            <a href="#">Características</a>
+                        </li>
+                        <li>
+                            <a href="#">Site</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Localização</h4>
+                    <ul class="contact-list">
+                        <li>Cidade: Floriano PI</li>
+                        <li>Rua: Francisco Urquiza Machado, 462</li>
+                        <li>Email: tec.log@gmail.com</li>
+                        <li>Phone: +5589 9 9497-0001</li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <h4>Entre em contato</h4>
+                    <form action="">
+                        <div class="form">
+                            <input type="email" placeholder="Email">
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="bottom"> 
+                <p><a href="#">Termos</a> | <a href="#">Politica de privacidade</a></p> 
+                <p>Gestão de Demandas - IFPI Campus Floriano &copy; 2023</p>  
+            </div>
+        </div>
+    </footer>
+  
+    <script src="{% static 'js/Pagina-06.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Recuperar a Senha</title>
+    <link rel="stylesheet" href="{% static 'css/Pagina-02.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Login do usuario -->
+
+    <div class="wrapper">
+
+        <span class="bg-animate"></span>
+        <span class="bg-animate2"></span>
+
+        <div class="form-box login">
+
+            <h2 class="animation" style="--i:0; --j:21;">Login</h2>
+
+            <form action="{% url 'pagina3' %}" metode='POST'>
+
+                {% csrf_token %}
+
+                <div class="input-box animation" style="--i:1; --j:22;">
+                    <input type="text" name='username' class='form-control' required>
+                    <label for='username' class='form-label'>Nome</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-box animation" style="--i:2; --j:23;">
+                    <input type="password" name='password' class='from-control' id='password' required>
+                    <label fro='password' class='form-label'>Senha</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <button type="submit" class="btn animation" style="--i:3; --j:24;">Login</button>
+                
+                <div class="logreg-link animation" style="--i:4; --j:25;">
+                    <p>Esqueceu a senha?<a href="#" class="register-link">
+                    Recuperar</a></p>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="info-text login">
+            <h2 class="animation" style="--i:0; --j:20;">Seja bem vindo</h2>
+            <p class="animation" style="--i:1; --j:21;">Acesse sua conta e  
+            aproveite os benefícios da plataforma.
+            </p>
+        </div>
+
+        <!-- Recuperar senha do usuario -->
+
+        <div class="form-box register">
+
+            <h2 class="animation" style="--i:17; --j:0;">Recuperar Senha</h2>
+
+            <form action="#">
+
+                {% csrf_token %}
+
+                <div class="input-box animation" style="--i:18; --j:1;">
+                    <input type="text" required>
+                    <label>Nome</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-box animation" style="--i:19; --j:2;">
+                    <input type="text" required>
+                    <label>Email</label>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                
+                <button type="submit" class="btn animation" style="--i:21; --j:4;">Enviar</button>
+                
+                <div class="logreg-link animation" style="--i:22; --j:5;">
+                    <p>Voltar! <a href="#" class="login-link">
+                    Login</a></p>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="info-text register">
+
+            <h2 class="animation" style="--i:17; --j:0;">Solicite um novo acesso</h2>
+
+            <p class="animation" style="--i:18; --j:1;">E continue utilizando 
+                a plataforma.
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/Pagina-02.js' %}"></script>
+
+</body>
+</html>
+

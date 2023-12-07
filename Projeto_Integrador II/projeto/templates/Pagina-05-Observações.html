@@ -1,0 +1,321 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="pt-BR" dir="ltr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Pagina Inicial </title>
+  <link rel="stylesheet" href="{% static 'css/Pagina-05.css' %}">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar">
+            
+        <i class='bx bx-menu'></i>
+
+        <div class="logo"><a href="#"><span>Gestão</span> de Demandas</a></div>
+
+        <div class="nav-links">
+
+            <div class="sidebar-logo">
+                <span class="logo-name"></span>
+                <i class='bx bx-x' ></i>
+            </div>
+
+            <ul class="links">
+                
+                <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
+                <li><a href="{% url 'pagina4' %}">Demandas</a></li>
+                <li><a href="{% url 'pagina5' %}">Observações</a></li>
+
+                <li>
+
+                    <a href="#">Turmas e Cursos</a>
+
+                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+
+                    <ul class="htmlCss-sub-menu sub-menu">
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Superior</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="{% url 'pagina6' %}">TADS</a></li>
+                                <li><a href="#">Matemática</a></li>
+                                <li><a href="#">Biologia</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Integrado</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                                <li><a href="#">Meio Ambiente</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Concomitantes</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="#">Subsequentes</a>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                            </span>
+                            
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="#">Edificações</a></li>
+                                <li><a href="#">Eletromecânica</a></li>
+                                <li><a href="#">Informática</a></li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+                </li>   
+                <li><a href="{% url 'pagina1' %}"> {{ nome_usuario }} Sair</a></li>
+            </ul>
+        </div>
+
+        <div class="search-box">
+            <i class='bx bx-search'></i>
+            <div class="input-box">
+            <input type="text" placeholder="Pesquisar...">
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-------------- Cadatro de professores ------------>
+
+    <div class="professor">
+        
+    <!-- form modal -->
+        <div id = "fullscreen-div"></div>
+
+        <form class = "modal" id = "modal" metod='POST'>
+
+            {% csrf_token %}
+
+            <div class = "modal-content">
+
+                <div class = "modal-head">
+                    <h3 id = "modal-title">Adicionar Professores</h3>
+                    <button type="button" id = "close-btn">
+                        <i class = "fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class = "modal-main">
+                    <div class = "modal-row">
+                        <div class = "modal-col">
+                            <label for="">Professor</label>
+                            <input type = "text"  class = "form-control" name = "addr_ing_name">
+                        </div>
+                        <div class = "modal-col">
+                            <label for="">Diciplinas</label>
+                            <input type = "text"  class = "form-control" name = "diciplinas_D">
+                        </div>
+                    </div>
+
+                    <div class = "modal-row grid-row">
+                        <div class = "modal-col">
+                            <label for="">Laboratórios</label>
+                            <input type = "text"  class = "form-control" name = "laboratoarios_L">
+                        </div>
+                        <div class = "modal-col">
+                            <label for="">Carga Horária</label>
+                            <input type = "number"  class = "form-control" name = "carga_horaria">
+                        </div>
+                    </div>
+
+                    <div class = "modal-row">
+                        <div class = "modal-col">
+                            <label for="">Aulas Semanais</label>
+                            <input type = "number"  class = "form-control" name = "a_s">
+                        </div>
+                        <div class = "modal-col">
+                            <label for="">Turma</label>
+                            <input type = "text"  class = "form-control" name = "descricao_D">
+                        </div>
+                    </div>
+
+                    <div class = "modal-row" id = "modal-btns">
+                        <button type = "submit" id = "save-btn">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- end of form modal -->
+ 
+        <!-- address book home -->
+        <div class = "addr-book" id = "addr-book">
+            <div class = "addr-book-content">
+                <div class = "addr-book-head">
+                    <i class = "fa-solid fa-address-book fa-2x"></i>
+                    <h2>Observações<span> - 
+                        Período Letivo 2023.2</span>
+                    </h2>
+                </div>
+ 
+                <div class = "addr-book-top">
+                     
+                    <button type = "button" class = "btn" id = "add-btn">
+                         <span><i class = "fas fa-plus"></i> Adicionar </span>
+                    </button>
+      
+                </div>
+ 
+                <div class = "addr-book-list" id = "addr-book-list">
+                    <table class = "addr-table">
+                        <thead>
+                            <tr>
+ 
+                                 <th>Professor</th>
+                                 <th>Diciplinas</th>
+                                 <th>Laboratórios</th>
+                                 <th>Carga Horária</th>
+                                 <th>Aulas Semanais</th>
+                                 <th>Turma</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr> 
+ 
+                                 <tr></tr>
+                                 <tr></tr>
+                                 <tr></tr>
+                                 <tr></tr>
+                                 <tr></tr>
+                                 <tr></tr>
+                                 
+                            </tr> -->
+                        </tbody>
+                    </table>   
+                </div>
+            </div>
+ 
+        </div>
+         
+    </div>
+
+    
+
+    
+    <div class="pagination">
+        <div><i class="fa-solid fa-angles-left"></i></div>
+        <div><i class="fa-solid fa-chevron-left"></i></div>
+        <div>1</div>
+        <div>2</div>
+        <div><i class="fa-solid fa-chevron-right"></i></div>
+        <div><i class="fa-solid fa-angles-right"></i></div>
+    </div>
+
+
+    <footer>
+        <div class="container-inferior">
+            <div class="top">
+                    <div class="brand">
+                        <a href="#" class="logo">Gestão de Demandas</a>
+                        <p>
+                            Sistema Online de Gestão de Demandas de Disciplinas do Instituto Federal do Piaui
+                            Campus Floriano.
+                        </p>
+                        <ul class="social-media">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>  
+                    </div>
+                <div class="links">
+                    <h4>Links</h4>
+                    <ul class="link-list">
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#">Serviços</a>
+                        </li>
+                        <li>
+                            <a href="#">Características</a>
+                        </li>
+                        <li>
+                            <a href="#">Site</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Localização</h4>
+                    <ul class="contact-list">
+                        <li>Cidade: Floriano PI</li>
+                        <li>Rua: Francisco Urquiza Machado, 462</li>
+                        <li>Email: tec.log@gmail.com</li>
+                        <li>Phone: +5589 9 9497-0001</li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <h4>Entre em contato</h4>
+                    <form action="">
+                        <div class="form">
+                            <input type="email" placeholder="Email">
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="bottom"> 
+                <p><a href="#">Termos</a> | <a href="#">Politica de privacidade</a></p> 
+                <p>Gestão de Demandas - IFPI Campus Floriano &copy; 2023</p>  
+            </div>
+        </div>
+    </footer>
+  
+    <script src="{% static 'js/Pagina-05.js' %}"></script>
+
+</body>
+</html>
