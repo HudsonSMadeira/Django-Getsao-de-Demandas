@@ -13,8 +13,8 @@ def pagina2(request):
             'form': AuthenticationForm()
         })
     else:
-        username = request.POST.get('username1')
-        password = request.POST.get('password1')
+        username = request.POST('username1')
+        password = request.POST('password1')
 
         user = authenticate(request, username1=username, password1=password)
 
@@ -49,16 +49,7 @@ def pagina4(request):
 def pagina5(request):
     if request.user.is_authenticated:
         nome_usuario = request.user.username
-        return render(request, 'Pagina-05-Observações.html', {'nome_usuario': nome_usuario})
-    else:
-        # caso o usuário não esteja autenticado
-        return redirect('Pagina-02-Login.html')
-    
-@login_required 
-def pagina05(request):
-    if request.user.is_authenticated:
-        nome_usuario = request.user.username
-        return render(request, 'Pagina-005-Cadastro.html', {'nome_usuario': nome_usuario})
+        return render(request, 'Pagina-05-Cadastros.html', {'nome_usuario': nome_usuario})
     else:
         # caso o usuário não esteja autenticado
         return redirect('Pagina-02-Login.html')
@@ -72,6 +63,23 @@ def pagina6(request):
         # caso o usuário não esteja autenticado
         return redirect('Pagina-02-Login.html')
     
+@login_required 
+def pagina7(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-07-CadProfessor.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
+    
+@login_required 
+def pagina8(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-08-CadDisciplinas.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
 
 
 

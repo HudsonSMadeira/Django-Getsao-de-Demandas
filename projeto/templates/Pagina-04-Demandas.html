@@ -35,8 +35,32 @@
                 
                 <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
                 <li><a href="{% url 'pagina4' %}">Demandas</a></li>
-                <li><a href="{% url 'pagina5' %}">Observações</a></li>
-                <li><a href="{% url 'pagina05' %}">Cadastros</a></li>
+
+                <li>
+                    <a href="#">Cadastros</a>
+
+                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+
+                    <ul class="htmlCss-sub-menu sub-menu">
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="{% url 'pagina7' %}">Professores</a>
+                                <i class=''></i>
+                            </span>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="{% url 'pagina8' %}">Disciplinas</a>
+                                <i class=''></i>
+                            </span>
+
+                        </li>
+                        
+                    </ul>
+                </li>  
 
                 <li>
                     <a href="#">Turmas e Cursos</a>
@@ -141,42 +165,59 @@
                 <div class = "modal-main">
 
                     <div class = "modal-row">
+
                         <div class = "modal-col">
+
                             <label for="">Professor</label>
                             <input type = "text"  class = "form-control" list="professores" name = "addr_ing_name">
-                            <datalist id="professores">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </datalist>
+                            
                         </div>
+
                         <div class = "modal-col">
-                            <label for="">Diciplinas</label>
+
+                            <label for="">Disciplinas</label>
                             <input type = "text"  class = "form-control" list="" name = "diciplinas_D">
+
                         </div>
+
                     </div>
 
                     <div class = "modal-row grid-row">
+
                         <div class = "modal-col">
+
                             <label for="">Laboratórios</label>
-                            <input type = "text"  class = "form-control" name = "laboratoarios_L">
+                            <input type = "radio"  id="sim" class = "form-control" name = "laboratoarios_L" value="Sim">
+                            <label for="sim">Sim</label>
+                            <input type = "radio"  id="nao" class = "form-control" name = "laboratoarios_L" value="Nao">
+                            <label for="nao">Não</label>
+
                         </div>
-                        <div class = "modal-col">
-                            <label for="">Carga Horária</label>
-                            <input type = "number"  class = "form-control" name = "carga_horaria">
-                        </div>
+
                     </div>
 
-                    <div class = "modal-row">
+                    <div class = "modal-row grid-row">
+
                         <div class = "modal-col">
+
+                            <label for="">Carga Horária</label>
+                            <input type = "number"  class = "form-control" name = "carga_horaria">
+
                             <label for="">Aulas Semanais</label>
                             <input type = "number"  class = "form-control" name = "a_s">
+
                         </div>
+
                         <div class = "modal-col">
+                            
                             <label for="">Turma</label>
+                            <input type = "number"  class = "form-control" name = "descricao_D">
+
+                            <label for="">Ano - semestre</label>
                             <input type = "text"  class = "form-control" name = "descricao_D">
+
                         </div>
+
                     </div>
 
                     <div class = "modal-row" id = "modal-btns">
@@ -200,8 +241,7 @@
                 <div class = "addr-book-head">
 
                     <i class = "fa-solid fa-address-book fa-2x"></i>
-                    <h2>Demandas<span>  de Diciplinas</span>
-                    </h2>
+                    <h2>Demandas<span>  de Disciplinas</span></h2>
 
                 </div>
 

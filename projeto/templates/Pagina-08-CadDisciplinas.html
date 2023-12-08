@@ -8,36 +8,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Pagina Inicial </title>
-  <link rel="stylesheet" href="{% static 'css/Pagina-03.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Pagina-08.css' %}">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 </head>
 
 <body>
-    
+
     <nav>
         <div class="navbar">
             
-        <i class='bx bx-menu'></i>
+            <i class='bx bx-menu'></i>
 
-        <div class="logo"><a href="#"><span>Gestão</span> de Demandas</a></div>
+            <div class="logo"><a href="{% url 'pagina3' %}"><span>Gestão</span> de Demandas</a></div>
 
-        <div class="nav-links">
+            <div class="nav-links">
 
-            <div class="sidebar-logo">
-                <span class="logo-name"></span>
-                <i class='bx bx-x' ></i>
-            </div>
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x' ></i>
+                </div>
 
-            <ul class="links">
-
-                {% if user.is_authenticated %}
-                
+                <ul class="links">
+                    
                     <li><a href="{% url 'pagina3' %}">Carga Horária</a></li>
                     <li><a href="{% url 'pagina4' %}">Demandas</a></li>
-
+                    
                     <li>
                         <a href="#">Cadastros</a>
 
@@ -62,9 +61,10 @@
                             </li>
                             
                         </ul>
-                    </li>  
+                    </li> 
 
                     <li>
+
                         <a href="#">Turmas e Cursos</a>
 
                         <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
@@ -84,7 +84,6 @@
                                 </ul>
 
                             </li>
-                            
 
                             <li class="more">
 
@@ -128,211 +127,51 @@
                                 </ul>
 
                             </li>
-                            
+
                         </ul>
                     </li>   
                     <li><a href="{% url 'pagina1' %}"> {{ nome_usuario }} Sair</a></li>
-                {% else %}
-                    <p>Por favor, faça o login para acessar esta página.</p>
-                    <a href="{% url 'pagina2' %}">Login</a>
-                {% endif %}
-                
-            </ul>
-        </div>
-
-        <div class="search-box">
-            <i class='bx bx-search'></i>
-            <div class="input-box">
-            <input type="text" placeholder="Pesquisar...">
+                </ul>
             </div>
-        </div>
+       
         </div>
     </nav>
 
     <!-------------- Cadatro de professores ------------>
 
-    <div class="professor">
-        
-       <!-- form modal -->
-        <div id = "fullscreen-div"></div>
+    <div class="container_form">
 
-        <form class = "modal" id = "modal" metod='POST'>
+        <div class="title">Registrar</div>
 
-            {% csrf_token %} 
+        <div class="content">
 
-            <div class = "modal-content">
+            <form action="#">
 
-                <div class = "modal-head">
+                <div class="user-details">
 
-                    <h3 id = "modal-title">Adicionar Professores</h3>
+                    <div class="input-box">
+                        <span class="details">Disciplinas</span>
+                        <input type="text" placeholder="" required>
+                    </div>
 
-                    <button type="button" id = "close-btn">
-                        <i class = "fas fa-times"></i>
-                    </button>
+                    <div class="input-box">
+                        <span class="details">Ano</span>
+                        <input type="text" placeholder=" " required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Semestre</span>
+                        <input type="text" placeholder="" required>
+                    </div>
 
                 </div>
 
-                <div class = "modal-main">
-                    
-                    <div class = "modal-row">
-
-                        <div class = "modal-col">
-                            <label for="">Professor</label>
-                            <input type = "text"  class = "form-control" name = "addr_ing_name">
-                        </div>
-
-                        <div class = "modal-col">
-                            <label for="">Observações</label>
-                            <input type = "text"  class = "form-control" name = "observacoes_o">
-                        </div>
+                <div class="button">
+                    <input type="submit" value="Salvar">
+                </div>
                 
-                    </div>
-
-                    <div class = "modal-row grid-row">
-
-                        <div class = "modal-col">
-                            <label for="">Carga Horária</label>
-                            <input type = "number"  class = "form-control" name = "carga_horaria">
-                        </div>
-                        
-                        <div class = "modal-col">
-                            <label for="">Ensino</label>
-                            <input type = "number"  class = "form-control" name = "ensino_e">
-                        </div>
-
-                    </div>
-
-                    <div class = "modal-row grid-row">
-
-                        <div class = "modal-col">
-                            <label for="">Turmas</label>
-                            <input type = "number"  class = "form-control" name = "turmas_t">
-                        </div>
-
-                        <div class = "modal-col">
-                            <label for="">Ativ.Didatica/Pedagógica</label>
-                            <input type = "number"  class = "form-control" name = "Ativ_Didat_Pedag">
-                        </div>
-                        
-                    </div>
-
-                    <div class = "modal-row grid-row">
-                        
-                        <div class = "modal-col">
-                            <label for="">Orientações</label>
-                            <input type = "number"  class = "form-control" name = "orienracoes_o">
-                        </div>
-
-                        <div class = "modal-col">
-                            <label for="">Ativ.Administrativas</label>
-                            <input type = "number"  class = "form-control" name = "ativ_administrativas">
-                        </div>
-
-                    </div>
-
-                    <div class = "modal-row grid-row">
-                        
-                        <div class = "modal-col">
-                            <label for="">Ativ.Representações</label>
-                            <input type = "number"  class = "form-control" name = "ativ_representacoes">
-                        </div>
-
-                        <div class = "modal-col">
-                            <label for="">Ativ.Pesquisa/Extensão</label>
-                            <input type = "number"  class = "form-control" name = "ativ_pesquisa_extencao">
-                        </div>
-
-                    </div>
-
-                    <div class = "modal-row grid-row">
-                        
-                        <div class = "modal-col">
-                            <label for="">Capacitação</label>
-                            <input type = "number"  class = "form-control" name = "capacitação_c">
-                        </div>
-                        
-                    </div>
-
-                    <div class = "modal-row" id = "modal-btns">
-                        <button type = "submit" id = "save-btn">Salvar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <!-- end of form modal -->
-
-        <!-- address book home -->
-        <div class = "addr-book" id = "addr-book">
-            
-            <div class = "addr-book-content">
-
-                <div class = "addr-book-head">
-
-                    <i class = "fa-solid fa-address-book fa-2x"></i>
-                    <h2>Carga<span> Horária dos Professores</span></h2>
-
-                </div>
-
-                <div class = "addr-book-list" id = "addr-book-list">
-                    <table class = "addr-table">
-                        <thead>
-                            <tr>
-                                <th>Professor</th>
-                                <th>Observações</th>
-                                <th>Carga Horária</th>
-                                <th>Ensino</th>
-                                <th>Turmas</th>
-                                <th>A.D/Pedagógica</th>
-                                <th>Orientações</th>
-                                <th>A.Administrativas</th>
-                                <th>A.Representações</th>
-                                <th>A.P/Extensão</th>
-                                <th>Capacitação</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <!-- <tr> 
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <th></th>
-                                <tr></tr>
-                                <tr></tr>
-                            </tr> -->
-                        </tbody>
-                    </table>   
-                </div>
-            </div>
-
+            </form>
         </div>
-        
-    </div>
-
-    <div class="box-text">
-        <h3>Média Geral</h3>
-    </div>
-
-    <div class="graphBox">
-        
-        <div class="box">
-            <canvas id="earning"></canvas>
-        </div>
-
-    </div>
-    
-    <div class="pagination">
-        <div><i class="fa-solid fa-angles-left"></i></div>
-        <div><i class="fa-solid fa-chevron-left"></i></div>
-        <div>1</div>
-        <div>2</div>
-        <div><i class="fa-solid fa-chevron-right"></i></div>
-        <div><i class="fa-solid fa-angles-right"></i></div>
     </div>
 
     <footer>
@@ -405,9 +244,8 @@
             </div>
         </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'js/Pagina-03.js' %}"></script>
+  
+    <script src="{% static 'js/Pagina-08.js' %}"></script>
 
 </body>
 </html>

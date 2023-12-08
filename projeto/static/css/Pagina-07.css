@@ -152,10 +152,6 @@ nav .navbar .links li:hover .js-sub-menu{
   line-height: 40px;
 }
 
-/*.navbar .links li .htmlCss-more-sub-menu {
-   line-height: 40px; 
-}*/
-
 .navbar .links li .sub-menu .more-sub-menu{
   position: absolute;
   top: 0;
@@ -247,347 +243,112 @@ nav .navbar .links li:hover .js-sub-menu{
 
 /*------------- Lista de professores -------------------*/
 
-.professor{
-  margin-top: 100px;
-}
-
-h1, h2, h3, h4{
-  color: var(--dark-blue)
-}
-
-input, button{
-  outline: 0;
-  font-family: inherit;
-  font-size: 1rem;
-  border: none;
-}
-
-button{
-  cursor: pointer;
-}
-
-/* --------------------- modal -----------------------*/
-
-#fullscreen-div{
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+.container_form{
+  max-width: 50%;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none;
+  background-color: var(--cinza);
+  padding: 25px 30px;
+  border-radius: 5px;
+  margin-top: 8%;
+  margin-left: 25%;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
-.modal{
-  background-color: var(--branco);
-  border-radius: 0.6rem;
-  overflow: hidden;
-  display: none;
-  position: fixed;
-  margin-top: 60px;
-  top: 2rem;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  -webkit-box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 5;
+.container_form .title{
+  font-size: 25px;
+  font-weight: 500;
+  display: flex;
   align-items: center;
-}
-
-.modal-head{
-  background-color: var(--Azul);
-  padding: 1.2rem 2.4rem;
-  font-size: 1.5rem;
-  color: var(--branco);
   position: relative;
 }
 
-.modal-head h3{
-  color: var(--branco);
-}
-
-#close-btn{
-  background-color: transparent;
-  font-size: 1.4rem;
+.container_form .title::before{
+  content: "";
   position: absolute;
-  right: 1.5rem;
-  top: 1rem;
-  display: block;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: var(--branco);
-  color: var(--AzulEscuro);
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  -webkit-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-
-#close-btn:hover{
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.modal-main{
-  padding: 1rem 2.4rem 1rem 2.4rem;
-  max-width: 480px;
-  min-width: 400px;
-}
-
-.modal-row{
-  margin-bottom: 1rem;
-}
-
-.grid-row{
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  -webkit-column-gap: 1rem;
-     -moz-column-gap: 1rem;
-          column-gap: 1rem;
-}
-
-.modal-col label{
-  display: block;
-  align-items: center;
-  font-weight: 400;
-  color: var(--AzulEscuro);
-  margin-bottom: 0.6rem;
-}
-
-.modal-col input, .modal-col select{
-  border: 1px solid rgba(184, 183, 188, 0.5);
-  border-radius: 3px;
-  padding: 0.5rem 0.8rem;
-  font-size: 1rem;
-  outline: 0;
-  width: 100%;
-}
-
-#modal-btns button{
-  font-size: 1.1rem;
-  color: var(--branco);
-  border-radius: 4px;
-  padding: 0.6rem 2rem;
-  -webkit-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-
-#modal-btns button:hover{
-  -webkit-transform: translateY(1px);
-      -ms-transform: translateY(1px);
-          transform: translateY(1px);
-}
-
-#save-btn, #update-btn{
-  -webkit-box-shadow: 0 2px 0 0 #0CB0FF;
-          box-shadow: 0 2px 0 0 #0CB0FF;
-  background-color: var(--Azul);
-  margin-right: 0.6rem;
-}
-
-#save-btn:hover, #update-btn:hover{
-  -webkit-box-shadow: 0 1px 0 0 #00476A;
-          box-shadow: 0 1px 0 0 #00476A;
-}
-
-#delete-btn{
-  background-color: #d33c41;
-  -webkit-box-shadow: 0 2px 0 0 #8a1f23;
-          box-shadow: 0 2px 0 0 #8a1f23;
-}
-
-#delete-btn:hover{
-  -webkit-box-shadow: 0 1px 0 0 #8a1f23;
-          box-shadow: 0 1px 0 0 #8a1f23;
-}
-
-/* ----------------- Lista de Diciplia e Professores -------------------- */
-
-.addr-book-list {
-  width: 90%;
-  height: 100%;
-  margin: 80px;
-  margin-top: 150px;
-  background-color: #fff5;
-  justify-content: center;
-  backdrop-filter: blur(7px);
-  box-shadow: 0 .4rem .8rem #0005;
-  border-radius: .8rem;
-  overflow: hidden;
-  align-items: center;
-}
-
-.addr-book-top{
-  padding: 1rem 0;
-}
-
-.titulo-curso {
-  font-size: 18px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  color: var(--AzulEscuro);
-}
-
-.table__header {
-  width: 100%;
-  height: 10%;
-  margin: 20px;
-  background-color: #fff4;
-  padding: .8rem 1rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.table__header h1 {
-  font-size: 35px;
-  color: var(--AzulEscuro);
-}
-
-.table__body {
-  width: 95%;
-  max-height: calc(89% - 1.6rem);
-  background-color: var(--branco);
-
-  margin: .8rem auto;
-  border-radius: .6rem;
-
-  overflow: auto;
-  overflow: overlay;
-}
-
-.table__body::-webkit-scrollbar{
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-.table__body::-webkit-scrollbar-thumb{
-  border-radius: .5rem;
-  background-color: #0004;
-  visibility: hidden;
-}
-
-.table__body:hover::-webkit-scrollbar-thumb{ 
-    visibility: visible;
-}
-
-table {
-    width: 100%;
-}
-
-table, th, td {
-    border-collapse: collapse;
-    padding: 1rem;
-    text-align: left;
-}
-
-thead th {
-  position: sticky;
-  top: 0;
   left: 0;
-  background-color: #d5d1defe;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #0CB0FF, #00476A);
+}
+
+.content_form form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box{
+  margin-bottom: 15px;
+  margin-top: 25px;
+  width: 100%;
+}
+
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid var(--branco);
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: var(--AzulEscuro);
+}
+
+form .gender-details .gender-title{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category{
+  display: flex;
+  width: 80%;
+  margin: 14px 0 ;
+  justify-content: space-between;
+}
+
+form .category label{
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  text-transform: capitalize;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #0000000b;
+form .button{
+  height: 45px;
+  margin: 35px 0
 }
 
-tbody tr {
-  --delay: .1s;
-  transition: .5s ease-in-out var(--delay), background-color 0s;
-}
-
-tbody tr.hide {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-tbody tr:hover {
-  background-color: #fff6 !important;
-}
-
-tbody tr td,
-tbody tr td p,
-tbody tr td img {
-  transition: .2s ease-in-out;
-}
-
-tbody tr.hide td,
-tbody tr.hide td p {
-  padding: 0;
-  font: 0 / 0 sans-serif;
-  transition: .2s ease-in-out .5s;
-}
-
-@media (max-width: 1000px) {
-  td:not(:first-of-type) {
-    min-width: 12.1rem;
-  }
-}
-
-thead th span.icon-arrow {
-  display: inline-block;
-  width: 1.3rem;
-  height: 1.3rem;
-  border-radius: 50%;
-  border: 1.4px solid transparent;
-  
-  text-align: center;
-  font-size: 1rem;
-  
-  margin-left: .5rem;
-  transition: .2s ease-in-out;
-}
-
-thead th:hover span.icon-arrow{
-  border: 1.4px solid var(--Azul);
-}
-
-thead th:hover {
-  color: var(--Azul);
-}
-
-/*----------------------- Botão Adicionar -----------------*/
-
-.table__header .btn{
+form .button input{
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
   color: #fff;
-  padding: 0.8rem;
-  border-radius: 3px;
-  margin: 30px;
-  -webkit-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-  background-color: var(--Azul);
-  -webkit-box-shadow: 0 2px 0 0 #00476A;
-          box-shadow: 0 2px 0 0 #00476A;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #0CB0FF, #00476A);
 }
 
-.table__header .btn:hover {
-  color: var(--branco);
-  background-color: var(--AzulEscuro);
-  -webkit-transform: translateY(1px);
-      -ms-transform: translateY(1px);
-          transform: translateY(1px);
-  -webkit-box-shadow: 0 1px 0 0 #00476A;
-          box-shadow: 0 1px 0 0 #00476A;
+form .button input:hover{
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #0CB0FF, #00476A);
 }
 
 /* ----------------------   Footer  ----------------------*/
