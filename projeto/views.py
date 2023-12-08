@@ -13,8 +13,8 @@ def pagina2(request):
             'form': AuthenticationForm()
         })
     else:
-        username = request.POST('username1')
-        password = request.POST('password1')
+        username = request.POST('username')
+        password = request.POST('password')
 
         user = authenticate(request, username1=username, password1=password)
 
