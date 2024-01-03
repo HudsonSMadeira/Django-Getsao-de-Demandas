@@ -119,8 +119,7 @@ class UI{
                 form.a_s.value = address.ass;
                 form.turmas_t.value = address.turmas;
                 
-                
-                document.getElementById('modal-title').innerHTML = "Adicionar Professores";
+                document.getElementById('modal-title').innerHTML = "Adicionar Demandas";
 
                 document.getElementById('modal-btns').innerHTML = `
                     <button type = "submit" id = "update-btn" data-id = "${id}">Editar </button>
@@ -154,7 +153,7 @@ function eventListeners(){
     // show add item modal
     addBtn.addEventListener('click', () => {
         form.reset();
-        document.getElementById('modal-title').innerHTML = "Adicionar Professores";
+        document.getElementById('modal-title').innerHTML = "Adicionar Demandas";
         UI.showModal();
         document.getElementById('modal-btns').innerHTML = `
             <button type = "submit" id = "save-btn"> Salvar </button>
