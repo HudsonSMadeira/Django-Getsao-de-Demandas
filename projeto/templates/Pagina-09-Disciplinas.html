@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Pagina Inicial </title>
-  <link rel="stylesheet" href="{% static 'css/Pagina-08.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Pagina-09.css' %}">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -54,7 +54,31 @@
 
                             <li class="more">
 
-                                <span class="turmas"><a href="{% url 'pagina8' %}">Disciplinas</a>
+                                <span class="turmas"><a href="{% url 'pagina8' %}">Ano e Semestre</a>
+                                    <i class=''></i>
+                                </span>
+
+                            </li>
+
+                            <li class="more">
+
+                                <span class="turmas"><a href="{% url 'pagina9' %}">Disciplinas</a>
+                                    <i class=''></i>
+                                </span>
+
+                            </li>
+
+                            <li class="more">
+
+                                <span class="turmas"><a href="{% url 'pagina10' %}">Matriz</a>
+                                    <i class=''></i>
+                                </span>
+
+                            </li>
+
+                            <li class="more">
+
+                                <span class="turmas"><a href="{% url 'pagina11' %}">Atividades</a>
                                     <i class=''></i>
                                 </span>
 
@@ -150,17 +174,22 @@
                 <div class="user-details">
 
                     <div class="input-box">
-                        <span class="details">Disciplinas</span>
-                        <input type="text" placeholder="" required>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="details">Ano</span>
+                        <span class="details">Disciplina</span>
                         <input type="text" placeholder=" " required>
                     </div>
 
                     <div class="input-box">
-                        <span class="details">Semestre</span>
+                        <span class="details">Observação</span>
+                        <input type="text" placeholder="" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Carga Horária</span>
+                        <input type="text" placeholder="" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Carga horária Semanal</span>
                         <input type="text" placeholder="" required>
                     </div>
 
@@ -245,7 +274,7 @@
         </div>
     </footer>
   
-    <script src="{% static 'js/Pagina-08.js' %}"></script>
+    <script src="{% static 'js/Pagina-09.js' %}"></script>
 
 </body>
 </html>

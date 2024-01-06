@@ -53,7 +53,31 @@
 
                         <li class="more">
 
-                            <span class="turmas"><a href="{% url 'pagina8' %}">Disciplinas</a>
+                            <span class="turmas"><a href="{% url 'pagina8' %}">Ano e Semestre</a>
+                                <i class=''></i>
+                            </span>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="{% url 'pagina9' %}">Disciplinas</a>
+                                <i class=''></i>
+                            </span>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="{% url 'pagina10' %}">Matriz</a>
+                                <i class=''></i>
+                            </span>
+
+                        </li>
+
+                        <li class="more">
+
+                            <span class="turmas"><a href="{% url 'pagina11' %}">Atividades</a>
                                 <i class=''></i>
                             </span>
 
@@ -225,6 +249,10 @@
                             <label for="">Carga Horária</label>
                             <input type = "number"  class = "form-control" name = "carga_horaria">
 
+                        </div>
+
+                        <div class = "modal-col">
+                            
                             <label for="">Aulas Semanais</label>
                             <input type = "number"  class = "form-control" name = "a_s">
 
@@ -234,22 +262,6 @@
                             
                             <label for="">Turma</label>
                             <input type = "number"  class = "form-control" name = "descricao_D">
-
-                            <article>
-                                <label for="">Ano - semestre</label>
-                                <input type = "text"  class = "form-control" id="two" list="ano" placeholder="Ano e Semestre..." name = "descricao_D">
-
-                                <datalist id="ano">
-                                    <option value="2021.1">
-                                    <option value="2021.2">
-                                    <option value="2022.1">
-                                    <option value="2022.2">
-                                    <option value="2023.1">
-                                    <option value="2023.2">
-                                    <option value="2024.1">
-                                    <option value="">
-                                </datalist>
-                            </article>
 
                         </div>
 
@@ -278,6 +290,25 @@
                     <i class = "fa-solid fa-address-book fa-2x"></i>
                     <h2>Demandas<span>  de Disciplinas</span></h2>
 
+                </div>
+
+                <div class = "ano_semestre">
+                    <h2></h2> 
+                    <article>
+                        
+                        <input type = "text" id="two" list="ano" placeholder="2024.1">
+
+                        <datalist id="ano">
+                            <option value="2024.1">
+                            <option value="2023.2">
+                            <option value="2023.1">
+                            <option value="2022.2">
+                            <option value="2022.1">
+                            <option value="2021.2">
+                            <option value="2021.1">
+                            <option value="">
+                        </datalist>
+                    </article>
                 </div>
 
                 <div class = "addr-book-top">

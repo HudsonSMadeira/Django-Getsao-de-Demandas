@@ -12,7 +12,7 @@ class NivelDeEnsino(models.Model):
 class Semestre(models.Model):
     ano = models.IntegerField()
     semestre = models.IntegerField()
-    primary_key = models.CompositeField('ano', 'semestre')
+    primary_key = models.DateTimeField('primary_key', default=None)
 
 class AtividadeAdministrativa(models.Model):
     id_atividade = models.IntegerField(primary_key=True)
@@ -56,4 +56,4 @@ class AtividadeAdministrativaProfessor(models.Model):
 class ProfessorDisciplina(models.Model):
     demanda = models.ForeignKey(Demanda, on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
-    primary_key = models.CompositeField('demanda', 'professor')
+    primary_key = models.CharField('primary_key', default=None)

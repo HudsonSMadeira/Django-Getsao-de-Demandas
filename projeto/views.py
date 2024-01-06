@@ -76,11 +76,37 @@ def pagina7(request):
 def pagina8(request):
     if request.user.is_authenticated:
         nome_usuario = request.user.username
-        return render(request, 'Pagina-08-CadDisciplinas.html', {'nome_usuario': nome_usuario})
+        return render(request, 'Pagina-08-AnoSemestre.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
+    
+@login_required 
+def pagina9(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-09-Disciplinas.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
+    
+@login_required 
+def pagina10(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-10-Matriz.html', {'nome_usuario': nome_usuario})
     else:
         # caso o usuário não esteja autenticado
         return redirect('Pagina-02-Login.html')
 
+@login_required 
+def pagina11(request):
+    if request.user.is_authenticated:
+        nome_usuario = request.user.username
+        return render(request, 'Pagina-11-Atividades.html', {'nome_usuario': nome_usuario})
+    else:
+        # caso o usuário não esteja autenticado
+        return redirect('Pagina-02-Login.html')
 
 
 
