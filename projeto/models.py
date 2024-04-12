@@ -4,6 +4,9 @@ class Matriz(models.Model):
     id_matriz = models.AutoField(primary_key=True)
     ano_matriz = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.ano_matriz
+    
 class NivelDeEnsino(models.Model):
     id_nivel = models.IntegerField(primary_key=True)
     nome_nivel = models.CharField(max_length=40)
@@ -57,3 +60,4 @@ class ProfessorDisciplina(models.Model):
     demanda = models.ForeignKey(Demanda, on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
     primary_key = models.CharField('primary_key', default=None)
+

@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from .models import *
+from .serializers import *
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.views import APIView
+
 
 def pagina1(request):
     return render(request,'Pagina-01.html')
@@ -109,6 +114,52 @@ def pagina11(request):
         return redirect('Pagina-02-Login.html')
 
 
+
+# API Serializers
+    
+class MatrizView(ModelViewSet):
+    queryset = Matriz.objects.all()
+    serializer_class = MatrizSrializers
+
+class NivelDeEnsinoView(ModelViewSet):
+    queryset = NivelDeEnsino.objects.all()
+    serializer_class = NivelDeEnsinoSerializers
+
+class SemestreView(ModelViewSet):
+    queryset = Semestre.objects.all()
+    serializer_class = SemestreSerializers
+
+class AtividadeAdministrativaView(ModelViewSet):
+    queryset = AtividadeAdministrativa.objects.all()
+    serializer_class = AtividadeAdministrativaSerializers
+
+class CursoView(ModelViewSet):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+class TurmamoduloView(ModelViewSet):
+    queryset = TurmaModulo.objects.all()
+    serializer_class = TurmaModuloSerializer
+
+class DisciplinaView(ModelViewSet):
+    queryset = Disciplina.objects.all()
+    serializer_class = DisciplinaSerializer
+
+class DemandaView(ModelViewSet):
+    queryset = Demanda.objects.all()
+    serializer_class = DisciplinaSerializer
+
+class ProfessorView(ModelViewSet):
+    queryset = Professor.objects.all()
+    serializer_class = ProfessorSerializer
+
+class AtividadeAdministrativaProfessorView(ModelViewSet):
+    queryset = AtividadeAdministrativaProfessor.objects.all()
+    serializer_class = AtividadeAdministrativaProfessorSerializer
+
+class ProfessorDisciplinaView(ModelViewSet):
+    queryset = ProfessorDisciplina.objects.all()
+    serializer_class = ProfessorDisciplinaSerializers
 
 
 
