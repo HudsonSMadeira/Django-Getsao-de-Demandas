@@ -46,8 +46,12 @@ class Demanda(models.Model):
     semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE)
 
 class Professor(models.Model):
-    matricula = models.PositiveIntegerField(primary_key=True)
     nome_professor = models.CharField(max_length=255)
+    matricula = models.PositiveIntegerField(primary_key=True)
+    observacao_professor = models.TextField(default='')
+
+    def __str__(self):
+        return self.nome_professor
 
 class AtividadeAdministrativaProfessor(models.Model):
     id_atividade_professor = models.IntegerField(primary_key=True)

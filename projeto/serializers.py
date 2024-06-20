@@ -52,7 +52,7 @@ class DemandaSrializer(serializers.ModelSerializer):
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
-        fields = '__all__'
+        fields = ['nome_professor', 'matricula', 'observacao_professor']
         many = True
 
 class AtividadeAdministrativaProfessorSerializer(serializers.ModelSerializer):

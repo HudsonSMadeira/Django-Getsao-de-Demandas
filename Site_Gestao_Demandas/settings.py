@@ -27,12 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'projeto.apps.ProjetoConfig',
     'rest_framework',
-    
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -121,8 +122,11 @@ LOGOUT_REDIRECT_URL = 'pagina1'
 LOGIN_URL = 'pagina2'
 
 CORS_ALLOW_ORIGINS = [
-    'http:localhost/8080',
+    'http:localhost/8080/',
+    'http://localhost:8100/',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFALT_PERMISSION_CLASSES' : [
