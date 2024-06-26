@@ -76,6 +76,7 @@ DATABASES = {
         'HOST': 'dpg-cptnumg8fa8c738nk1s0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
+    
 }
 
 
