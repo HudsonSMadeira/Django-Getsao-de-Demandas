@@ -1,19 +1,23 @@
 from django.urls import path, include
 from .views import *
 from rest_framework.routers import DefaultRouter
+from .views import MyTokenObtainPairView
+from .views import (MatrizViewSet, NivelDeEnsinoViewSet, SemestreViewSet, AtividadeAdministrativaViewSet, 
+                    CursoViewSet, TurmaModuloViewSet, DisciplinaViewSet, DemandaViewSet, 
+                    ProfessorViewSet, AtividadeAdministrativaProfessorViewSet, ProfessorDisciplinaViewSet)
 
 router = DefaultRouter()
-router.register(r'Matriz', MatrizView)
-router.register(r'NivelDeEnsino', NivelDeEnsinoView)
-router.register(r'Semestre', SemestreView)
-router.register(r'AtividadeAdministrativa', AtividadeAdministrativaView)
-router.register(r'Curso', CursoView)
-router.register(r'Turmamodulo', TurmamoduloView)
-router.register(r'Disciplina', DisciplinaView)
-router.register(r'Demanda',DemandaView)
-router.register(r'Professor', ProfessorView)
-router.register(r'AtividadeAdministrativaProfessor', AtividadeAdministrativaProfessorView)
-router.register(r'ProfessorDisciplina', ProfessorDisciplinaView)
+router.register(r'Matriz', MatrizViewSet)
+router.register(r'Nivel-de-ensino', NivelDeEnsinoViewSet)
+router.register(r'Semestre', SemestreViewSet)
+router.register(r'Atividade-administrativa', AtividadeAdministrativaViewSet)
+router.register(r'Curso', CursoViewSet)
+router.register(r'Turma-modulo', TurmaModuloViewSet)
+router.register(r'Disciplina', DisciplinaViewSet)
+router.register(r'Demanda', DemandaViewSet)
+router.register(r'Professor', ProfessorViewSet)
+router.register(r'Atividade-administrativa-professor', AtividadeAdministrativaProfessorViewSet)
+router.register(r'Professor-disciplina', ProfessorDisciplinaViewSet)
 
 urlpatterns = [
     path('', pagina1, name='pagina1'),
@@ -28,6 +32,8 @@ urlpatterns = [
     path('pagina10', pagina10, name='pagina10'),
     path('pagina11', pagina11, name='pagina11'),
     path('', include(router.urls)),
+    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ] 
+
 
 

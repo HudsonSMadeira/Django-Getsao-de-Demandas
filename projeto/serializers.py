@@ -1,69 +1,66 @@
+# serializers.py
 from rest_framework import serializers
-from .models import *
+from django.contrib.auth.models import User
+from .models import (Matriz, NivelDeEnsino, Semestre, AtividadeAdministrativa, 
+                     Curso, TurmaModulo, Disciplina, Demanda, Professor, 
+                     AtividadeAdministrativaProfessor, ProfessorDisciplina)
 
-class MatrizSrializers(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [ 'username', 'password' ]
+
+class MatrizSerializer(serializers.ModelSerializer):
     class Meta:
         model = Matriz
         fields = '__all__'
-        many = True
 
-class NivelDeEnsinoSerializers(serializers.ModelSerializer):
+class NivelDeEnsinoSerializer(serializers.ModelSerializer):
     class Meta:
         model = NivelDeEnsino
         fields = '__all__'
-        many = True
 
-class SemestreSerializers(serializers.ModelSerializer):
+class SemestreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Semestre
         fields = '__all__'
-        many = True
 
-class AtividadeAdministrativaSerializers(serializers.ModelSerializer):
+class AtividadeAdministrativaSerializer(serializers.ModelSerializer):
     class Meta:
         model = AtividadeAdministrativa
         fields = '__all__'
-        many = True
 
 class CursoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Curso
         fields = '__all__'
-        many = True
 
 class TurmaModuloSerializer(serializers.ModelSerializer):
     class Meta:
         model = TurmaModulo
         fields = '__all__'
-        many = True
 
 class DisciplinaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Disciplina
         fields = '__all__'
-        many = True
 
-class DemandaSrializer(serializers.ModelSerializer):
+class DemandaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Demanda
         fields = '__all__'
-        many = True
 
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         fields = ['nome_professor', 'matricula', 'observacao_professor']
-        many = True
 
 class AtividadeAdministrativaProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = AtividadeAdministrativaProfessor
         fields = '__all__'
-        many = True
 
-class ProfessorDisciplinaSerializers(serializers.ModelSerializer):
-    class meta:
+class ProfessorDisciplinaSerializer(serializers.ModelSerializer):
+    class Meta:
         model = ProfessorDisciplina
         fields = '__all__'
-        many = True
-

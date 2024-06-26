@@ -3,11 +3,23 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import *
-from .serializers import *
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import viewsets, routers
 from rest_framework.views import APIView
-
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import User
+from .models import (Matriz, NivelDeEnsino, Semestre, AtividadeAdministrativa, 
+                     Curso, TurmaModulo, Disciplina, Demanda, Professor, 
+                     AtividadeAdministrativaProfessor, ProfessorDisciplina)
+from .serializers import (MatrizSerializer, NivelDeEnsinoSerializer, SemestreSerializer, 
+                          AtividadeAdministrativaSerializer, CursoSerializer, TurmaModuloSerializer, 
+                          DisciplinaSerializer, DemandaSerializer, ProfessorSerializer, 
+                          AtividadeAdministrativaProfessorSerializer, ProfessorDisciplinaSerializer)
 
 def pagina1(request):
     return render(request,'Pagina-01.html')
@@ -114,52 +126,53 @@ def pagina11(request):
         return redirect('Pagina-02-Login.html')
 
 
-
-# API Serializers
+# --------------------- API Serializers --------------------------
     
-class MatrizView(ModelViewSet):
+# views.py
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+
+class MatrizViewSet(viewsets.ModelViewSet):
     queryset = Matriz.objects.all()
-    serializer_class = MatrizSrializers
+    serializer_class = MatrizSerializer
 
-class NivelDeEnsinoView(ModelViewSet):
+class NivelDeEnsinoViewSet(viewsets.ModelViewSet):
     queryset = NivelDeEnsino.objects.all()
-    serializer_class = NivelDeEnsinoSerializers
+    serializer_class = NivelDeEnsinoSerializer
 
-class SemestreView(ModelViewSet):
+class SemestreViewSet(viewsets.ModelViewSet):
     queryset = Semestre.objects.all()
-    serializer_class = SemestreSerializers
+    serializer_class = SemestreSerializer
 
-class AtividadeAdministrativaView(ModelViewSet):
+class AtividadeAdministrativaViewSet(viewsets.ModelViewSet):
     queryset = AtividadeAdministrativa.objects.all()
-    serializer_class = AtividadeAdministrativaSerializers
+    serializer_class = AtividadeAdministrativaSerializer
 
-class CursoView(ModelViewSet):
+class CursoViewSet(viewsets.ModelViewSet):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 
-class TurmamoduloView(ModelViewSet):
+class TurmaModuloViewSet(viewsets.ModelViewSet):
     queryset = TurmaModulo.objects.all()
     serializer_class = TurmaModuloSerializer
 
-class DisciplinaView(ModelViewSet):
+class DisciplinaViewSet(viewsets.ModelViewSet):
     queryset = Disciplina.objects.all()
     serializer_class = DisciplinaSerializer
 
-class DemandaView(ModelViewSet):
+class DemandaViewSet(viewsets.ModelViewSet):
     queryset = Demanda.objects.all()
-    serializer_class = DisciplinaSerializer
+    serializer_class = DemandaSerializer
 
-class ProfessorView(ModelViewSet):
+class ProfessorViewSet(viewsets.ModelViewSet):
     queryset = Professor.objects.all()
     serializer_class = ProfessorSerializer
 
-class AtividadeAdministrativaProfessorView(ModelViewSet):
+class AtividadeAdministrativaProfessorViewSet(viewsets.ModelViewSet):
     queryset = AtividadeAdministrativaProfessor.objects.all()
     serializer_class = AtividadeAdministrativaProfessorSerializer
 
-class ProfessorDisciplinaView(ModelViewSet):
+class ProfessorDisciplinaViewSet(viewsets.ModelViewSet):
     queryset = ProfessorDisciplina.objects.all()
-    serializer_class = ProfessorDisciplinaSerializers
-
-
-
+    serializer_class = ProfessorDisciplinaSerializer
