@@ -70,10 +70,11 @@ WSGI_APPLICATION = 'Site_Gestao_Demandas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestao_de_demandas',
-        'USER': 'postgres',
-        'PASSWORD': '161989',
-        'HOST': 'localhost',
+        'NAME': 'gestaodemandas_db',
+        'USER': 'admin',
+        'PASSWORD': 'k63Qwg7jQQibVuPAlnfVMlSh5yiPN9AL',
+        'HOST': 'dpg-cptnumg8fa8c738nk1s0-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
