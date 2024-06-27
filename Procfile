@@ -1,1 +1,1 @@
-web: gunicorn projeto.wsgi --log-file -
+web: gunicorn Site_Gestao_Demandas.wsgi --log-file -
