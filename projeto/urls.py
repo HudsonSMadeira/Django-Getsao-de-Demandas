@@ -20,7 +20,7 @@ router.register(r'Atividade-administrativa-professor', AtividadeAdministrativaPr
 router.register(r'Professor-disciplina', ProfessorDisciplinaViewSet)
 
 urlpatterns = [
-    path('pagina1', pagina1, name='pagina1'),
+    path(' ', pagina1, name='pagina1'),
     path('pagina2', pagina2, name='pagina2'),
     path('pagina3', pagina3, name='pagina3'),
     path('pagina4', pagina4, name='pagina4'),
@@ -34,6 +34,4 @@ urlpatterns = [
     path(' ', include(router.urls)),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ] 
-
-
 
