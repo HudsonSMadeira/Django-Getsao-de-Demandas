@@ -7,7 +7,7 @@ from .views import (MatrizViewSet, NivelDeEnsinoViewSet, SemestreViewSet, Ativid
                     ProfessorViewSet, AtividadeAdministrativaProfessorViewSet, ProfessorDisciplinaViewSet)
 
 router = DefaultRouter()
-router.register(r'api/token', MyTokenObtainPairView)
+router.register(r'Matriz', MatrizViewSet)
 router.register(r'Matriz', MatrizViewSet)
 router.register(r'Nivel-de-ensino', NivelDeEnsinoViewSet)
 router.register(r'Semestre', SemestreViewSet)
@@ -33,6 +33,7 @@ urlpatterns = [
     path('pagina10', pagina10, name='pagina10'),
     path('pagina11', pagina11, name='pagina11'),
     path('', include(router.urls)),
+    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ] 
 
 
