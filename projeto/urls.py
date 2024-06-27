@@ -31,6 +31,6 @@ urlpatterns = [
     path('pagina9', pagina9, name='pagina9'),
     path('pagina10', pagina10, name='pagina10'),
     path('pagina11', pagina11, name='pagina11'),
-    path('api/token', include(router.urls)),
+    path(' ', include(router.urls)),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ] 
