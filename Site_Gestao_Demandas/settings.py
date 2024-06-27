@@ -78,7 +78,7 @@ DATABASES = {
        'NAME': 'gestaodemandas_db',
       'USER': 'admin',
      'PASSWORD': 'k63Qwg7jQQibVuPAlnfVMlSh5yiPN9AL',
-       'HOST': 'dpg-cptnumg8fa8c738nk1s0-a.oregon-postgres.render.com/gestaodemandas_db',
+       'HOST': 'dpg-cptnumg8fa8c738nk1s0-a.oregon-postgres.render.com',
        'PORT': '5432',
   }
 }
