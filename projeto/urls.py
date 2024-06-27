@@ -34,4 +34,3 @@ urlpatterns = [
     path(' ', include(router.urls)),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ] 
-
