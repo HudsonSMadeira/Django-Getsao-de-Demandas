@@ -72,24 +72,23 @@ WSGI_APPLICATION = 'Site_Gestao_Demandas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'gestaodemandas_db',
-#      'USER': 'postgres',
-#       'PASSWORD': 'RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy',
-#       'HOST': 'roundhouse.proxy.rlwy.net',
-#       'PORT': '31289',
-#  }
-#}
-
 DATABASES = {
-    'default': dj_database_url.config(
-       default= 'postgresql://postgres:RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy@roundhouse.proxy.rlwy.net:31289/railway',
-        conn_max_age=600,
-       ssl_require=not DEBUG
-   )
+   'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'gestaodemandas_db',
+      'USER': 'admin',
+     'PASSWORD': 'k63Qwg7jQQibVuPAlnfVMlSh5yiPN9AL',
+       'HOST': 'dpg-cptnumg8fa8c738nk1s0-a.oregon-postgres.render.com/gestaodemandas_db',
+       'PORT': '5432',
+  }
 }
+
+#    'default': dj_database_url.config(
+#      default= 'postgresql://postgres:RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy@roundhouse.proxy.rlwy.net:31289/railway',
+#       conn_max_age=600,
+#       ssl_require=not DEBUG
+#  )
+#}
 
 
 # Password validation
