@@ -7,7 +7,7 @@ from .views import (MatrizViewSet, NivelDeEnsinoViewSet, SemestreViewSet, Ativid
                     ProfessorViewSet, AtividadeAdministrativaProfessorViewSet, ProfessorDisciplinaViewSet)
 
 router = DefaultRouter()
-router.register(r'api/token', MyTokenObtainPairView.as_view(), name='token_obtain_pair')
+router.register(r'api/token', MyTokenObtainPairView)
 router.register(r'Matriz', MatrizViewSet)
 router.register(r'Nivel-de-ensino', NivelDeEnsinoViewSet)
 router.register(r'Semestre', SemestreViewSet)
