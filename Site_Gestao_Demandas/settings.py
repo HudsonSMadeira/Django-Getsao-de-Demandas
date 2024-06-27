@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from datetime import timedelta
-#import dj_database_url
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -71,22 +71,24 @@ WSGI_APPLICATION = 'Site_Gestao_Demandas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestaodemandas_db',
-       'USER': 'postgres',
-       'PASSWORD': 'RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy',
-       'HOST': 'roundhouse.proxy.rlwy.net',
-       'PORT': '31289',
-  }
-}
-
 #DATABASES = {
-#    'default': dj_database_url.config(
-#        default=os.getenv('DATABASE_URL')
-#    )
+#    'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'gestaodemandas_db',
+#      'USER': 'postgres',
+#       'PASSWORD': 'RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy',
+#       'HOST': 'roundhouse.proxy.rlwy.net',
+#       'PORT': '31289',
+#  }
 #}
+
+DATABASES = {
+    'default': dj_database_url.config(
+       default= 'postgresql://postgres:RtbbqbeMWdkpjLWqvxZVAIiXqlWNXcGy@roundhouse.proxy.rlwy.net:31289/railway',
+        conn_max_age=600,
+       ssl_require=not DEBUG
+   )
+}
 
 
 # Password validation
