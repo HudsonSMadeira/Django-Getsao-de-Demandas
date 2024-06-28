@@ -10,7 +10,6 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User
 from .models import (Matriz, NivelDeEnsino, Semestre, AtividadeAdministrativa, 

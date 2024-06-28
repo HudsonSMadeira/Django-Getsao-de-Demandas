@@ -18,6 +18,7 @@ router.register(r'Demanda', DemandaViewSet)
 router.register(r'Professor', ProfessorViewSet)
 router.register(r'Atividade-administrativa-professor', AtividadeAdministrativaProfessorViewSet)
 router.register(r'Professor-disciplina', ProfessorDisciplinaViewSet)
+router.register(r'token_obtain_pair',  MyTokenObtainPairView)
 
 urlpatterns = [
     path(' ', pagina1, name='pagina1'),
@@ -31,8 +32,7 @@ urlpatterns = [
     path('pagina9', pagina9, name='pagina9'),
     path('pagina10', pagina10, name='pagina10'),
     path('pagina11', pagina11, name='pagina11'),
-    path(' ', include(router.urls)),
-    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('/', include(router.urls)),
 ] 
 
 
