@@ -1,15 +1,29 @@
 # serializers.py
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from .models import (Matriz, NivelDeEnsino, Semestre, AtividadeAdministrativa, 
                      Curso, TurmaModulo, Disciplina, Demanda, Professor, 
                      AtividadeAdministrativaProfessor, ProfessorDisciplina)
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = [ 'username', 'password' ]
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
 
+    def validate(self, data):
+        username = data.get("username")
+        password = data.get("password")
+
+        if username and password:
+            user = authenticate(username=username, password=password)
+            if user:
+                data["user"] = user
+            else:
+                raise serializers.ValidationError("Usuário ou senha incorretos")
+        else:
+            raise serializers.ValidationError("Todos os campos são obrigatórios")
+        
+        return data
 class MatrizSerializer(serializers.ModelSerializer):
     class Meta:
         model = Matriz

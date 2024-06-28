@@ -12,6 +12,10 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User
+from rest_framework import generics
+from .serializers import LoginSerializer
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 from .models import (Matriz, NivelDeEnsino, Semestre, AtividadeAdministrativa, 
                      Curso, TurmaModulo, Disciplina, Demanda, Professor, 
                      AtividadeAdministrativaProfessor, ProfessorDisciplina)
@@ -128,6 +132,16 @@ def pagina11(request):
 # --------------------- API Serializers --------------------------
     
 # views.py
+class LoginView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+    permission_classes = (AllowAny,)
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data["user"]
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({"token": token.key})
 
 class MyTokenObtainPairView(TokenObtainPairView):
     permission_classes = (AllowAny,)

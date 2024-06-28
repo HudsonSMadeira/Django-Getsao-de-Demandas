@@ -1,4 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+class Usuario(AbstractBaseUser):
+    username = models.CharField(max_length=255, unique=True)
+    password = models.CharField(max_length=255)
+
+    USERNAME_FIELD = 'username'
 
 class Matriz(models.Model):
     id_matriz = models.AutoField(primary_key=True)
