@@ -132,6 +132,7 @@ def pagina11(request):
 # --------------------- API Serializers --------------------------
     
 # views.py
+
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
     permission_classes = (AllowAny,)
